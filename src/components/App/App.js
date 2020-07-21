@@ -9,8 +9,8 @@ class App extends React.Component {
   handleClick = () => {
     this.props.dispatch(
       {
-        type: 'BUTTON_CLICK',
         payload: {},
+        type: 'ADD_CREATURE_TO_LIST',
       }
     );
   }
