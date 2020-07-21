@@ -6,23 +6,18 @@ import * as serviceWorker from './serviceWorker';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 
-const firstReducer = (state = [], action) => {
-  if (action.type === 'FIRST') {
-    console.log('First reducer is the BEST.');
+const creatureList = (state = ['Dragon'], action) => {
+  if (action.type === 'ADD_CREATURE_TO_LIST') {
     return [
       ...state,
-      'Clicked again, FIRST',
-    ];
-  } else if (action.type === 'ADD_CREATURE_TO_LIST') {
-    return [
-      ...state,
-      action.payload
+      action.payload.creature
     ]
   }
 
   return state;
 }
 
+const defaultSecond = { message: 'not updated' };
 const secondReducer = (state = {}, action) => {
   if (action.type === 'SECOND') {
     console.log('Second reducer is BETTER!!!');
@@ -36,7 +31,7 @@ const secondReducer = (state = {}, action) => {
 const storeInstance = createStore(
   combineReducers(
     {
-      firstReducer,
+      creatureList,
       secondReducer
     }
   )
