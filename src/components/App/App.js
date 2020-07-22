@@ -26,19 +26,35 @@ class App extends React.Component {
     })
   }
 
+  handleClickSecond = () => {
+    this.props.dispatch(
+      { //action
+        type: 'SECOND',
+      }
+    );
+  }
+
   render() {
     // toggle things
     return (
       <AppLayout>
         {/* ADDITIONAL CONTENT */}
-        BODY CONTENT
-        <input
-          type="text"
-          placeholder="New Creature"
-          onChange={this.handleCreatureChange}
-        />
-        <button onClick={this.handleClick}>SAVE</button>
-        <p>Second Reducer Message: {this.props.secondReducer.message}</p>
+        <div className="stackBlock">
+          BODY CONTENT
+        </div>
+        <div className="stackBlock">
+          <button className="btn" onClick={this.handleClickSecond}>SEND SECOND</button>
+          <p>Second Reducer Message: {this.props.secondReducer.message}</p>
+        </div>
+        <div className="stackBlock stackBlock_orgContent">
+          <input
+            className="field"
+            type="text"
+            placeholder="New Creature"
+            onChange={this.handleCreatureChange}
+          />
+          <button className="btn" onClick={this.handleClick}>SAVE</button>
+        </div>
         <CreatureList />
       </AppLayout>
     );

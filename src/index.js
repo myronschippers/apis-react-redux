@@ -18,7 +18,7 @@ const creatureList = (state = ['Dragon'], action) => {
 }
 
 const defaultSecond = { message: 'not updated' };
-const secondReducer = (state = {}, action) => {
+const secondReducer = (state = defaultSecond, action) => {
   if (action.type === 'SECOND') {
     console.log('Second reducer is BETTER!!!');
     return {

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 class CreatureList extends Component {
   render() {
     return (
-      <div>
+      <div className="pillList">
         {this.props.reduxState.creatureList.map((item, index) => {
           return <p key={index}>{item}</p>;
         })}
