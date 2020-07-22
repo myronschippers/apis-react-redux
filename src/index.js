@@ -3,14 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import logger from 'redux-logger';
 
 const creatureList = (state = ['Dragon'], action) => {
   if (action.type === 'ADD_CREATURE_TO_LIST') {
     return [
       ...state,
-      action.payload.creature
+      action.payload.enteredCreature
     ]
   }
 
@@ -34,7 +35,8 @@ const storeInstance = createStore(
       creatureList,
       secondReducer
     }
-  )
+  ),
+  applyMiddleware(logger),
 );
 
 ReactDOM.render(

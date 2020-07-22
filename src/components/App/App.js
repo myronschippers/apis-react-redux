@@ -14,7 +14,7 @@ class App extends React.Component {
   handleClick = () => {
     this.props.dispatch(
       { //action
-        payload: { creature: this.state.enteredCreature},
+        payload: this.state,
         type: 'ADD_CREATURE_TO_LIST',
       }
     );
